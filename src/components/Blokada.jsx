@@ -1,0 +1,3 @@
+export default function Blokada(){
+    return <p>Za sve informacije o blokadama možete posetiti <a style={{color: '#D84B16', textDecoration: 'none'}} href="https://blokade.org/sr/">Blokade.org</a> ili zvanične Instagram stranice <a style={{color: '#D84B16', textDecoration: 'none'}} href="https://www.instagram.com/studenti_u_blokadi/">Studenti u blokadi</a> i <a style={{color: '#D84B16', textDecoration: 'none'}} href="https://www.instagram.com/blokada.fon/">Blokada FON</a>.</p>
+}
