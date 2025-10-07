@@ -44,8 +44,7 @@ export default function AdminLogin() {
         </div>
         <button className="primary" type="submit">Uloguj se</button>
       </form>
-      <div style={{ marginTop: 12 }}>
-        {/* <span className="kbd">Ruta admin panela: /admin</span> */}
+      <div style={{ marginTop: 10 }}>
         <Blokada />
       </div>
     </div>

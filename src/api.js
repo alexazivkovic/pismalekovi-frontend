@@ -5,7 +5,6 @@ const json = async (r) => {
 };
 
 const API = {
-  // PUBLIC
   listLetters: async ({ q = "", page = 0, size = 10 } = {}) =>
     json(await fetch(`/api/public/letters?q=${encodeURIComponent(q)}&page=${page}&size=${size}`)
 ),
@@ -14,11 +13,9 @@ const API = {
 ),
 
   searchDrugs: async (q = "", page = 0, size = 10) =>
-    // očekujemo backend endpoint /api/public/drugs?q=
     json(await fetch(`/api/public/drugs?q=${encodeURIComponent(q)}&page=${page}&size=${size}`)
   ),
 
-  // ADMIN (Basic Auth)
   adminListLetters: async (auth, { q = "", page = 0, size = 10 } = {}) =>
     json(await fetch(`/api/admin/letters?q=${encodeURIComponent(q)}&page=${page}&size=${size}`, {
       headers: { Authorization: `Basic ${auth}` }
@@ -54,8 +51,6 @@ const API = {
     }
   ),
 
-  // ========= SUBSCRIBERS =========
-  // PUBLIC
   publicSubscribe: async (email) => {
     const params = new URLSearchParams();
     params.append("email", email);
@@ -66,18 +61,6 @@ const API = {
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     return json(r);
   },
-
-  // ADMIN
-  // adminListSubscribers: async ({ q = "", page = 0, size = 20 } = {}) => {
-  //   const auth = getAuth();
-  //   if (!auth) throw API_AUTH_ERROR;
-  //   const r = await fetch(`/api/admin/subscribers?q=${encodeURIComponent(q)}&page=${page}&size=${size}`, {
-  //     headers: { Authorization: `Basic ${auth}` }
-  //   });
-  //   if (r.status === 401) throw API_AUTH_ERROR;
-  //   if (!r.ok) throw new Error(`HTTP ${r.status}`);
-  //   return json(r);
-  // },
 
   adminListSubscribers: async (auth, { q = "", page = 0, size = 10 } = {}) =>
     json(await fetch(`/api/admin/subscribers?q=${encodeURIComponent(q)}&page=${page}&size=${size}`, {
@@ -96,18 +79,6 @@ const API = {
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     return json(r);
   },
-
-  // adminDeleteSubscriber: async (id) => {
-  //   const auth = getAuth();
-  //   if (!auth) throw API_AUTH_ERROR;
-  //   const r = await fetch(`/api/admin/subscribers/${id}/deactivate`, {
-  //     method: "POST",
-  //     headers: { Authorization: `Basic ${auth}` }
-  //   });
-  //   if (r.status === 401) throw API_AUTH_ERROR;
-  //   if (!r.ok) throw new Error(`HTTP ${r.status}`);
-  //   return null;
-  // },
 
   adminDeactivateSubscriber: async (auth, id) =>
     fetch(`/api/admin/subscribers/${id}/deactivate`, {

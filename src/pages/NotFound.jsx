@@ -8,7 +8,9 @@ export default function NotFound() {
         <h3>Stranica nije pronađena</h3>
         <p>Vratite se na <a style={{textDecoration: 'none', color: '#D84B16'}} href="http://localhost:5173/">početnu</a>.</p>
       </div>
-      <Blokada />
+      <div style={{ marginTop: 10 }}>
+        <Blokada />
+      </div>
     </div>
   );
 }

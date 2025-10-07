@@ -49,7 +49,6 @@ export default function AdminSubscribers() {
   };
 
   const remove = async (id) => {
-    //if (!confirm("Obrisati pretplatnika?")) return;
     try {
       await API.adminDeactivateSubscriber(auth, id);
       setMsg("Pretplatnik obrisan.");
@@ -132,6 +131,11 @@ export default function AdminSubscribers() {
           onNext={() => setPage(p => p + 1)}
         />
       </div>
+
+      <div style={{ marginTop: 10 }}>
+        <Blokada />
+      </div>
+
     </div>
   );
 }

@@ -20,7 +20,6 @@ export default function PublicHome() {
     <div className="container">
       <div className="nav">
         <h2>Pisma zdravstvenim radnicima</h2>
-        {/* svesno NE prikazujemo link ka /admin */}
       </div>
 
       <div className="card" style={{ marginTop: 16 }}>
@@ -82,7 +81,10 @@ export default function PublicHome() {
       </div>
 
       <SubscribeBox />
-      <Blokada />
+      
+      <div style={{ marginTop: 10 }}>
+        <Blokada />
+      </div>
 
     </div>
   );

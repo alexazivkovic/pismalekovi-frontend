@@ -15,7 +15,6 @@ export default function AdminPanel() {
   const [data, setData] = useState({ content: [], totalPages: 0 });
   const [qDrugs, setQDrugs] = useState("");
 
-  // forme
   const emptyForm = useMemo(() => ({ title: "", drugIds: [], file: null }), []);
   const [form, setForm] = useState(emptyForm);
   const [editing, setEditing] = useState(null);
@@ -97,7 +96,6 @@ export default function AdminPanel() {
         </div>
       </div>
 
-      {/* KREIRANJE */}
       <div className="card" style={{ marginTop: 16 }}>
         <h3>{editing ? `Izmena pisma #${editing.id}` : "Kreiraj novo pismo"}</h3>
         {message && <div className="success" style={{ marginTop: 8 }}>{message}</div>}
@@ -124,7 +122,6 @@ export default function AdminPanel() {
             type="file"
             accept="application/pdf"
             onChange={(e) => setForm({ ...form, file: e.target.files[0] })}
-            //disabled={!!editing}
             style={editing ? { background: '#eee', cursor: 'not-allowed' } : {}}
           />
         </div>
@@ -141,7 +138,6 @@ export default function AdminPanel() {
         </div>
       </div>
 
-      {/* LISTA */}
       <div className="card" style={{ marginTop: 16 }}>
         <div className="row" style={{ marginBottom: 10, gap: 8 }}>
           <input
@@ -205,7 +201,9 @@ export default function AdminPanel() {
         />
       </div>
 
-      <Blokada />
+      <div style={{ marginTop: 10 }}>
+        <Blokada />
+      </div>
 
     </div>
   );
